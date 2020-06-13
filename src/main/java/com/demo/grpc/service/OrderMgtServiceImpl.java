@@ -89,4 +89,38 @@ public class OrderMgtServiceImpl extends OrderManagementGrpc.OrderManagementImpl
             responseObserver.onCompleted();
         }
     }
+
+    @Override
+    public StreamObserver<OrderManagementOuterClass.Order> updateOrders(StreamObserver<StringValue> responseObserver) {
+        return new StreamObserver<OrderManagementOuterClass.Order>() {
+
+            StringBuilder updateOrderStrBuilder = new StringBuilder().append("Updated Order IDs : ");
+
+            @Override
+            public void onNext(OrderManagementOuterClass.Order order) {
+                if (order != null) {
+                    orderMap.put(order.getId(), order);
+                    updateOrderStrBuilder.append(order.getId())
+                            .append(",");
+                    logger.info("Order ID:" + order.getId());
+
+                }
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+            }
+
+            @Override
+            public void onCompleted() {
+                logger.info("Update orders - Completed");
+                StringValue res = StringValue
+                        .newBuilder()
+                        .setValue(updateOrderStrBuilder.toString())
+                        .build();
+                responseObserver.onNext(res);
+                responseObserver.onCompleted();
+            }
+        };
+    }
 }
