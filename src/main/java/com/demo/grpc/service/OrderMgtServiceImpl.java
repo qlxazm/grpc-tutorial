@@ -1,6 +1,7 @@
 package com.demo.grpc.service;
 
 import com.google.common.base.Objects;
+import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 import com.google.protobuf.StringValue;
 import ecommerce.OrderManagementGrpc;
@@ -88,5 +89,23 @@ public class OrderMgtServiceImpl extends OrderManagementGrpc.OrderManagementImpl
             logger.info("没有编号为" + request.getValue() + "的订单的信息");
             responseObserver.onCompleted();
         }
+    }
+
+    @Override
+    public void searchOrders(StringValue request, StreamObserver<OrderManagementOuterClass.Order> responseObserver) {
+
+        for (Map.Entry<String, OrderManagementOuterClass.Order> entry : orderMap.entrySet()) {
+            OrderManagementOuterClass.Order order = entry.getValue();
+            int itemCount = order.getItemsCount();
+            for (int i = 0; i < itemCount; i++) {
+                String item = order.getItems(i);
+                if (item.contains(request.getValue())) {
+                    logger.info("找到了订单" + order);
+                    responseObserver.onNext(order);
+                    break;
+                }
+            }
+        }
+        responseObserver.onCompleted();
     }
 }

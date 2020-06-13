@@ -1184,10 +1184,12 @@ public final class OrderManagementOuterClass {
       "gle/protobuf/wrappers.proto\"[\n\005Order\022\n\n\002" +
       "id\030\001 \001(\t\022\r\n\005items\030\002 \003(\t\022\023\n\013description\030\003" +
       " \001(\t\022\r\n\005price\030\004 \001(\002\022\023\n\013destination\030\005 \001(\t" +
-      "2\211\001\n\017OrderManagement\022:\n\010addOrder\022\020.ecomm" +
+      "2\313\001\n\017OrderManagement\022:\n\010addOrder\022\020.ecomm" +
       "erce.Order\032\034.google.protobuf.StringValue" +
       "\022:\n\010getOrder\022\034.google.protobuf.StringVal" +
-      "ue\032\020.ecommerce.Orderb\006proto3"
+      "ue\032\020.ecommerce.Order\022@\n\014searchOrders\022\034.g" +
+      "oogle.protobuf.StringValue\032\020.ecommerce.O" +
+      "rder0\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

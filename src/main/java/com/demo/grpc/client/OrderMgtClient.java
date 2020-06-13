@@ -6,6 +6,7 @@ import ecommerce.OrderManagementOuterClass;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import java.util.Iterator;
 import java.util.logging.Logger;
 
 /**
@@ -27,20 +28,14 @@ public class OrderMgtClient {
         // 异步stub
         OrderManagementGrpc.OrderManagementStub asyncStub = OrderManagementGrpc.newStub(channel);
 
-        OrderManagementOuterClass.Order order = OrderManagementOuterClass.Order
-                .newBuilder()
-                .setId("101")
-                .addItems("iPhone XS").addItems("Mac Book Pro")
-                .setDescription("San Jose, CA")
-                .setPrice(2300)
-                .build();
 
-        // 添加一个订单
-        StringValue result = stub.addOrder(order);
-        logger.info("添加了一个订单之后的结果" + result);
+        // 查询一个订单
+        StringValue searchText = StringValue.newBuilder().setValue("Google").build();
 
-        StringValue orderId = StringValue.newBuilder().setValue("103").build();
-        OrderManagementOuterClass.Order order1 = stub.getOrder(orderId);
-        logger.info("从server获取的订单的数据是：" + order1.getDescription());
+        Iterator<OrderManagementOuterClass.Order> iter = stub.searchOrders(searchText);
+        while (iter.hasNext()) {
+            OrderManagementOuterClass.Order order = iter.next();
+            logger.info("从server获取的订单的数据是：" + order.getItemsList());
+        }
     }
 }
