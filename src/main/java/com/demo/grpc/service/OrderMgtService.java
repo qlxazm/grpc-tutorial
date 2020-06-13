@@ -2,6 +2,7 @@ package com.demo.grpc.service;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.ServerInterceptors;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -19,7 +20,7 @@ public class OrderMgtService {
     private void start() throws IOException {
         int port = 50051;
         server = ServerBuilder.forPort(port)
-                .addService(new OrderMgtServiceImpl())
+                .addService(ServerInterceptors.intercept(new OrderMgtServiceImpl(), new OrderMgtServerInterceptor()))
                 .build()
                 .start();
 
