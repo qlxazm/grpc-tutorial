@@ -21,6 +21,7 @@ com\demo\grpc\hello\HelloRequestOrBuilder.class
 com\google\protobuf\StringValueOrBuilder.class
 com\google\protobuf\DoubleValueOrBuilder.class
 com\google\protobuf\StringValue$Builder.class
+ecommerce\OrderManagementOuterClass$CombinedShipment$Builder.class
 com\demo\grpc\App.class
 com\demo\grpc\hello\HelloRequest.class
 com\google\protobuf\BytesValue.class
@@ -43,11 +44,13 @@ ecommerce\OrderManagementGrpc$3.class
 com\demo\grpc\client\HelloClient.class
 com\demo\grpc\hello\HelloResponse$1.class
 com\google\protobuf\UInt32Value$Builder.class
+ecommerce\OrderManagementOuterClass$CombinedShipment$1.class
 ecommerce\OrderManagementOuterClass$Order$1.class
 com\demo\grpc\hello\HelloGrpc$HelloStub.class
 com\google\protobuf\Int32Value.class
 ecommerce\OrderManagementGrpc$OrderManagementFutureStub.class
 com\google\protobuf\UInt32Value$1.class
+ecommerce\OrderManagementOuterClass$CombinedShipment.class
 com\google\protobuf\BoolValue$1.class
 com\demo\grpc\hello\HelloRequest$Builder.class
 com\google\protobuf\DoubleValue$Builder.class
@@ -74,6 +77,7 @@ com\demo\grpc\hello\HelloGrpc.class
 com\demo\grpc\hello\HelloGrpc$HelloMethodDescriptorSupplier.class
 com\demo\grpc\service\HelloServiceInterceptor.class
 com\google\protobuf\BytesValueOrBuilder.class
+ecommerce\OrderManagementOuterClass$CombinedShipmentOrBuilder.class
 com\google\protobuf\BytesValue$Builder.class
 ecommerce\OrderManagementOuterClass$OrderOrBuilder.class
 com\demo\grpc\hello\HelloGrpc$HelloFutureStub.class

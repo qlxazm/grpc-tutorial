@@ -1166,11 +1166,1100 @@ public final class OrderManagementOuterClass {
 
   }
 
+  public interface CombinedShipmentOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ecommerce.CombinedShipment)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string status = 2;</code>
+     * @return The status.
+     */
+    java.lang.String getStatus();
+    /**
+     * <code>string status = 2;</code>
+     * @return The bytes for status.
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
+
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    java.util.List<ecommerce.OrderManagementOuterClass.Order> 
+        getOrderListList();
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    ecommerce.OrderManagementOuterClass.Order getOrderList(int index);
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    int getOrderListCount();
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    java.util.List<? extends ecommerce.OrderManagementOuterClass.OrderOrBuilder> 
+        getOrderListOrBuilderList();
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    ecommerce.OrderManagementOuterClass.OrderOrBuilder getOrderListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code ecommerce.CombinedShipment}
+   */
+  public  static final class CombinedShipment extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ecommerce.CombinedShipment)
+      CombinedShipmentOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CombinedShipment.newBuilder() to construct.
+    private CombinedShipment(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CombinedShipment() {
+      id_ = "";
+      status_ = "";
+      orderList_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CombinedShipment();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CombinedShipment(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              status_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                orderList_ = new java.util.ArrayList<ecommerce.OrderManagementOuterClass.Order>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              orderList_.add(
+                  input.readMessage(ecommerce.OrderManagementOuterClass.Order.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          orderList_ = java.util.Collections.unmodifiableList(orderList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return ecommerce.OrderManagementOuterClass.internal_static_ecommerce_CombinedShipment_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return ecommerce.OrderManagementOuterClass.internal_static_ecommerce_CombinedShipment_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              ecommerce.OrderManagementOuterClass.CombinedShipment.class, ecommerce.OrderManagementOuterClass.CombinedShipment.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private volatile java.lang.Object status_;
+    /**
+     * <code>string status = 2;</code>
+     * @return The status.
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string status = 2;</code>
+     * @return The bytes for status.
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ORDERLIST_FIELD_NUMBER = 3;
+    private java.util.List<ecommerce.OrderManagementOuterClass.Order> orderList_;
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    public java.util.List<ecommerce.OrderManagementOuterClass.Order> getOrderListList() {
+      return orderList_;
+    }
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    public java.util.List<? extends ecommerce.OrderManagementOuterClass.OrderOrBuilder> 
+        getOrderListOrBuilderList() {
+      return orderList_;
+    }
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    public int getOrderListCount() {
+      return orderList_.size();
+    }
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    public ecommerce.OrderManagementOuterClass.Order getOrderList(int index) {
+      return orderList_.get(index);
+    }
+    /**
+     * <code>repeated .ecommerce.Order orderList = 3;</code>
+     */
+    public ecommerce.OrderManagementOuterClass.OrderOrBuilder getOrderListOrBuilder(
+        int index) {
+      return orderList_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (!getStatusBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, status_);
+      }
+      for (int i = 0; i < orderList_.size(); i++) {
+        output.writeMessage(3, orderList_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (!getStatusBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, status_);
+      }
+      for (int i = 0; i < orderList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, orderList_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof ecommerce.OrderManagementOuterClass.CombinedShipment)) {
+        return super.equals(obj);
+      }
+      ecommerce.OrderManagementOuterClass.CombinedShipment other = (ecommerce.OrderManagementOuterClass.CombinedShipment) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
+      if (!getOrderListList()
+          .equals(other.getOrderListList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus().hashCode();
+      if (getOrderListCount() > 0) {
+        hash = (37 * hash) + ORDERLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderListList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(ecommerce.OrderManagementOuterClass.CombinedShipment prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ecommerce.CombinedShipment}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ecommerce.CombinedShipment)
+        ecommerce.OrderManagementOuterClass.CombinedShipmentOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return ecommerce.OrderManagementOuterClass.internal_static_ecommerce_CombinedShipment_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return ecommerce.OrderManagementOuterClass.internal_static_ecommerce_CombinedShipment_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                ecommerce.OrderManagementOuterClass.CombinedShipment.class, ecommerce.OrderManagementOuterClass.CombinedShipment.Builder.class);
+      }
+
+      // Construct using ecommerce.OrderManagementOuterClass.CombinedShipment.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getOrderListFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        status_ = "";
+
+        if (orderListBuilder_ == null) {
+          orderList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          orderListBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return ecommerce.OrderManagementOuterClass.internal_static_ecommerce_CombinedShipment_descriptor;
+      }
+
+      @java.lang.Override
+      public ecommerce.OrderManagementOuterClass.CombinedShipment getDefaultInstanceForType() {
+        return ecommerce.OrderManagementOuterClass.CombinedShipment.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public ecommerce.OrderManagementOuterClass.CombinedShipment build() {
+        ecommerce.OrderManagementOuterClass.CombinedShipment result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public ecommerce.OrderManagementOuterClass.CombinedShipment buildPartial() {
+        ecommerce.OrderManagementOuterClass.CombinedShipment result = new ecommerce.OrderManagementOuterClass.CombinedShipment(this);
+        int from_bitField0_ = bitField0_;
+        result.id_ = id_;
+        result.status_ = status_;
+        if (orderListBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            orderList_ = java.util.Collections.unmodifiableList(orderList_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.orderList_ = orderList_;
+        } else {
+          result.orderList_ = orderListBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ecommerce.OrderManagementOuterClass.CombinedShipment) {
+          return mergeFrom((ecommerce.OrderManagementOuterClass.CombinedShipment)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(ecommerce.OrderManagementOuterClass.CombinedShipment other) {
+        if (other == ecommerce.OrderManagementOuterClass.CombinedShipment.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
+          onChanged();
+        }
+        if (orderListBuilder_ == null) {
+          if (!other.orderList_.isEmpty()) {
+            if (orderList_.isEmpty()) {
+              orderList_ = other.orderList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureOrderListIsMutable();
+              orderList_.addAll(other.orderList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.orderList_.isEmpty()) {
+            if (orderListBuilder_.isEmpty()) {
+              orderListBuilder_.dispose();
+              orderListBuilder_ = null;
+              orderList_ = other.orderList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              orderListBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getOrderListFieldBuilder() : null;
+            } else {
+              orderListBuilder_.addAllMessages(other.orderList_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        ecommerce.OrderManagementOuterClass.CombinedShipment parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ecommerce.OrderManagementOuterClass.CombinedShipment) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object status_ = "";
+      /**
+       * <code>string status = 2;</code>
+       * @return The status.
+       */
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @return The bytes for status.
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        
+        status_ = getDefaultInstance().getStatus();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<ecommerce.OrderManagementOuterClass.Order> orderList_ =
+        java.util.Collections.emptyList();
+      private void ensureOrderListIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          orderList_ = new java.util.ArrayList<ecommerce.OrderManagementOuterClass.Order>(orderList_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          ecommerce.OrderManagementOuterClass.Order, ecommerce.OrderManagementOuterClass.Order.Builder, ecommerce.OrderManagementOuterClass.OrderOrBuilder> orderListBuilder_;
+
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public java.util.List<ecommerce.OrderManagementOuterClass.Order> getOrderListList() {
+        if (orderListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(orderList_);
+        } else {
+          return orderListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public int getOrderListCount() {
+        if (orderListBuilder_ == null) {
+          return orderList_.size();
+        } else {
+          return orderListBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public ecommerce.OrderManagementOuterClass.Order getOrderList(int index) {
+        if (orderListBuilder_ == null) {
+          return orderList_.get(index);
+        } else {
+          return orderListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder setOrderList(
+          int index, ecommerce.OrderManagementOuterClass.Order value) {
+        if (orderListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOrderListIsMutable();
+          orderList_.set(index, value);
+          onChanged();
+        } else {
+          orderListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder setOrderList(
+          int index, ecommerce.OrderManagementOuterClass.Order.Builder builderForValue) {
+        if (orderListBuilder_ == null) {
+          ensureOrderListIsMutable();
+          orderList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          orderListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder addOrderList(ecommerce.OrderManagementOuterClass.Order value) {
+        if (orderListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOrderListIsMutable();
+          orderList_.add(value);
+          onChanged();
+        } else {
+          orderListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder addOrderList(
+          int index, ecommerce.OrderManagementOuterClass.Order value) {
+        if (orderListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOrderListIsMutable();
+          orderList_.add(index, value);
+          onChanged();
+        } else {
+          orderListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder addOrderList(
+          ecommerce.OrderManagementOuterClass.Order.Builder builderForValue) {
+        if (orderListBuilder_ == null) {
+          ensureOrderListIsMutable();
+          orderList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          orderListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder addOrderList(
+          int index, ecommerce.OrderManagementOuterClass.Order.Builder builderForValue) {
+        if (orderListBuilder_ == null) {
+          ensureOrderListIsMutable();
+          orderList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          orderListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder addAllOrderList(
+          java.lang.Iterable<? extends ecommerce.OrderManagementOuterClass.Order> values) {
+        if (orderListBuilder_ == null) {
+          ensureOrderListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, orderList_);
+          onChanged();
+        } else {
+          orderListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder clearOrderList() {
+        if (orderListBuilder_ == null) {
+          orderList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          orderListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public Builder removeOrderList(int index) {
+        if (orderListBuilder_ == null) {
+          ensureOrderListIsMutable();
+          orderList_.remove(index);
+          onChanged();
+        } else {
+          orderListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public ecommerce.OrderManagementOuterClass.Order.Builder getOrderListBuilder(
+          int index) {
+        return getOrderListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public ecommerce.OrderManagementOuterClass.OrderOrBuilder getOrderListOrBuilder(
+          int index) {
+        if (orderListBuilder_ == null) {
+          return orderList_.get(index);  } else {
+          return orderListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public java.util.List<? extends ecommerce.OrderManagementOuterClass.OrderOrBuilder> 
+           getOrderListOrBuilderList() {
+        if (orderListBuilder_ != null) {
+          return orderListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(orderList_);
+        }
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public ecommerce.OrderManagementOuterClass.Order.Builder addOrderListBuilder() {
+        return getOrderListFieldBuilder().addBuilder(
+            ecommerce.OrderManagementOuterClass.Order.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public ecommerce.OrderManagementOuterClass.Order.Builder addOrderListBuilder(
+          int index) {
+        return getOrderListFieldBuilder().addBuilder(
+            index, ecommerce.OrderManagementOuterClass.Order.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ecommerce.Order orderList = 3;</code>
+       */
+      public java.util.List<ecommerce.OrderManagementOuterClass.Order.Builder> 
+           getOrderListBuilderList() {
+        return getOrderListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          ecommerce.OrderManagementOuterClass.Order, ecommerce.OrderManagementOuterClass.Order.Builder, ecommerce.OrderManagementOuterClass.OrderOrBuilder> 
+          getOrderListFieldBuilder() {
+        if (orderListBuilder_ == null) {
+          orderListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              ecommerce.OrderManagementOuterClass.Order, ecommerce.OrderManagementOuterClass.Order.Builder, ecommerce.OrderManagementOuterClass.OrderOrBuilder>(
+                  orderList_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          orderList_ = null;
+        }
+        return orderListBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ecommerce.CombinedShipment)
+    }
+
+    // @@protoc_insertion_point(class_scope:ecommerce.CombinedShipment)
+    private static final ecommerce.OrderManagementOuterClass.CombinedShipment DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new ecommerce.OrderManagementOuterClass.CombinedShipment();
+    }
+
+    public static ecommerce.OrderManagementOuterClass.CombinedShipment getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CombinedShipment>
+        PARSER = new com.google.protobuf.AbstractParser<CombinedShipment>() {
+      @java.lang.Override
+      public CombinedShipment parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CombinedShipment(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CombinedShipment> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CombinedShipment> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public ecommerce.OrderManagementOuterClass.CombinedShipment getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ecommerce_Order_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ecommerce_Order_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ecommerce_CombinedShipment_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ecommerce_CombinedShipment_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1184,10 +2273,14 @@ public final class OrderManagementOuterClass {
       "gle/protobuf/wrappers.proto\"[\n\005Order\022\n\n\002" +
       "id\030\001 \001(\t\022\r\n\005items\030\002 \003(\t\022\023\n\013description\030\003" +
       " \001(\t\022\r\n\005price\030\004 \001(\002\022\023\n\013destination\030\005 \001(\t" +
-      "2\211\001\n\017OrderManagement\022:\n\010addOrder\022\020.ecomm" +
-      "erce.Order\032\034.google.protobuf.StringValue" +
-      "\022:\n\010getOrder\022\034.google.protobuf.StringVal" +
-      "ue\032\020.ecommerce.Orderb\006proto3"
+      "\"S\n\020CombinedShipment\022\n\n\002id\030\001 \001(\t\022\016\n\006stat" +
+      "us\030\002 \001(\t\022#\n\torderList\030\003 \003(\0132\020.ecommerce." +
+      "Order2\330\001\n\017OrderManagement\022:\n\010addOrder\022\020." +
+      "ecommerce.Order\032\034.google.protobuf.String" +
+      "Value\022:\n\010getOrder\022\034.google.protobuf.Stri" +
+      "ngValue\032\020.ecommerce.Order\022M\n\014processOrde" +
+      "r\022\034.google.protobuf.StringValue\032\033.ecomme" +
+      "rce.CombinedShipment(\0010\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1200,6 +2293,12 @@ public final class OrderManagementOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ecommerce_Order_descriptor,
         new java.lang.String[] { "Id", "Items", "Description", "Price", "Destination", });
+    internal_static_ecommerce_CombinedShipment_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_ecommerce_CombinedShipment_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ecommerce_CombinedShipment_descriptor,
+        new java.lang.String[] { "Id", "Status", "OrderList", });
     com.google.protobuf.WrappersProto.getDescriptor();
   }
 

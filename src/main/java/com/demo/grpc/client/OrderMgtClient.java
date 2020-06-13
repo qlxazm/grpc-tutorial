@@ -5,7 +5,10 @@ import ecommerce.OrderManagementGrpc;
 import ecommerce.OrderManagementOuterClass;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 /**
@@ -26,21 +29,49 @@ public class OrderMgtClient {
         OrderManagementGrpc.OrderManagementBlockingStub stub = OrderManagementGrpc.newBlockingStub(channel);
         // 异步stub
         OrderManagementGrpc.OrderManagementStub asyncStub = OrderManagementGrpc.newStub(channel);
+        invokeOrderProcess(asyncStub);
+    }
 
-        OrderManagementOuterClass.Order order = OrderManagementOuterClass.Order
-                .newBuilder()
-                .setId("101")
-                .addItems("iPhone XS").addItems("Mac Book Pro")
-                .setDescription("San Jose, CA")
-                .setPrice(2300)
-                .build();
+    private static void invokeOrderProcess(OrderManagementGrpc.OrderManagementStub asyncStub) {
 
-        // 添加一个订单
-        StringValue result = stub.addOrder(order);
-        logger.info("添加了一个订单之后的结果" + result);
+        final CountDownLatch finishLatch = new CountDownLatch(1);
 
-        StringValue orderId = StringValue.newBuilder().setValue("103").build();
-        OrderManagementOuterClass.Order order1 = stub.getOrder(orderId);
-        logger.info("从server获取的订单的数据是：" + order1.getDescription());
+        StreamObserver<OrderManagementOuterClass.CombinedShipment> responseObserver = new StreamObserver<OrderManagementOuterClass.CombinedShipment>() {
+            @Override
+            public void onNext(OrderManagementOuterClass.CombinedShipment shipment) {
+                logger.info("Combined Shipment : " + shipment.getOrderListList());
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCompleted() {
+                logger.info("Order Processing completed!");
+                finishLatch.countDown();
+            }
+        };
+
+        StreamObserver<StringValue> observerProcessRequest = asyncStub.processOrder(responseObserver);
+        observerProcessRequest.onNext(StringValue.newBuilder().setValue("101").build());
+        observerProcessRequest.onNext(StringValue.newBuilder().setValue("102").build());
+        observerProcessRequest.onNext(StringValue.newBuilder().setValue("103").build());
+        observerProcessRequest.onNext(StringValue.newBuilder().setValue("104").build());
+
+        if (finishLatch.getCount() == 0) {
+            logger.warning("RPC completed or errorted before we finished sending");
+            return;
+        }
+        observerProcessRequest.onCompleted();
+
+        try {
+            if (!finishLatch.await(120, TimeUnit.SECONDS)) {
+                logger.warning("FAILED: Process orders cannot finish within 60 seconds");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
