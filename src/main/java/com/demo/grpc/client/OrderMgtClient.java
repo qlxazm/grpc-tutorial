@@ -3,6 +3,8 @@ package com.demo.grpc.client;
 import com.google.protobuf.StringValue;
 import ecommerce.OrderManagementGrpc;
 import ecommerce.OrderManagementOuterClass;
+import io.grpc.Channel;
+import io.grpc.ClientInterceptors;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -22,8 +24,10 @@ public class OrderMgtClient {
                 .usePlaintext()
                 .build();
 
+        Channel channel1 = ClientInterceptors.intercept(channel, new OrderClientInterceptor());
+
         // 同步stub
-        OrderManagementGrpc.OrderManagementBlockingStub stub = OrderManagementGrpc.newBlockingStub(channel);
+        OrderManagementGrpc.OrderManagementBlockingStub stub = OrderManagementGrpc.newBlockingStub(channel1);
         // 异步stub
         OrderManagementGrpc.OrderManagementStub asyncStub = OrderManagementGrpc.newStub(channel);
 
