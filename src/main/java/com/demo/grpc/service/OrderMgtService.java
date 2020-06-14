@@ -3,8 +3,14 @@ package com.demo.grpc.service;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.ServerInterceptors;
+import io.grpc.netty.shaded.io.grpc.netty.GrpcSslContexts;
+import io.grpc.netty.shaded.io.grpc.netty.NettyChannelBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
+import io.grpc.netty.shaded.io.netty.handler.ssl.ClientAuth;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Logger;
 
 /**
@@ -18,11 +24,29 @@ public class OrderMgtService {
     private Server  server;
 
     private void start() throws IOException {
+
+        URL certUrl = getClass().getClassLoader().getResource("certs/server.crt");
+        URL pemUrl = getClass().getClassLoader().getResource("certs/server.pem");
+        URL caUrl = getClass().getClassLoader().getResource("certs/ca.crt");
+
+        File certFile = new File(certUrl.getFile());
+        File pemFile = new File(pemUrl.getFile());
+        File caFile = new File(caUrl.getFile());
+
         int port = 50051;
-        server = ServerBuilder.forPort(port)
-                .addService(ServerInterceptors.intercept(new OrderMgtServiceImpl(), new OrderMgtServerInterceptor()))
+        server = NettyServerBuilder.forPort(port)
+                .addService(new OrderMgtServiceImpl())
+                .sslContext(GrpcSslContexts.forServer(certFile, pemFile)
+                        .trustManager(caFile)
+                        .clientAuth(ClientAuth.OPTIONAL)
+                        .build())
                 .build()
                 .start();
+
+        /*server = ServerBuilder.forPort(port)
+                .addService(ServerInterceptors.intercept(new OrderMgtServiceImpl(), new OrderMgtServerInterceptor()))
+                .build()
+                .start();*/
 
         logger.info("服务器已经打开，正在" + port + "端口监听");
 
