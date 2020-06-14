@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import com.google.protobuf.StringValue;
 import ecommerce.OrderManagementGrpc;
 import ecommerce.OrderManagementOuterClass;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 import java.util.Map;
@@ -69,6 +70,20 @@ public class OrderMgtServiceImpl extends OrderManagementGrpc.OrderManagementImpl
     }
     @Override
     public void addOrder(OrderManagementOuterClass.Order request, StreamObserver<StringValue> responseObserver) {
+
+        /* 演示deadline功能
+        long sleepDuration = 3000;
+        try {
+            Thread.sleep(sleepDuration);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
+        if (request.getId().equals("-1")) {
+            logger.warning("订单编号不能是负数!");
+            responseObserver.onError(Status.INVALID_ARGUMENT.withDescription("订单编号不能为负数").asException());
+        }
+
         logger.info("添加编号为" + request.getId() + "的订单");
         orderMap.put(request.getId(), request);
         StringValue id = StringValue.newBuilder().setValue(request.getId()).build();

@@ -1,10 +1,13 @@
 package com.demo.grpc.service;
 
+import com.demo.grpc.client.OrderMgtClient;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.ServerInterceptors;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Logger;
 
 /**
@@ -18,9 +21,17 @@ public class OrderMgtService {
     private Server  server;
 
     private void start() throws IOException {
+        // 证书
+        URL certUrl = OrderMgtClient.class.getClassLoader().getResource("certs/server.crt");
+        File certFile = new File(certUrl.getFile());
+        // 私钥
+        URL keyUrl = OrderMgtClient.class.getClassLoader().getResource("certs/server.pem");
+        File keyFile = new File(keyUrl.getFile());
+
         int port = 50051;
         server = ServerBuilder.forPort(port)
                 .addService(ServerInterceptors.intercept(new OrderMgtServiceImpl(), new OrderMgtServerInterceptor()))
+                .useTransportSecurity(certFile, keyFile)
                 .build()
                 .start();
 
